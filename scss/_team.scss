@@ -1,0 +1,172 @@
+@import "veriables";
+@import "mixins";
+@import "flex";
+@import "reset";
+
+.container {
+  max-width: 1600px;
+  padding: 0 20px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.header-grid-team {
+  padding-top: 50px;
+  color: black;
+  display: grid;
+  grid-template-areas: "logo info" "logo nav";
+  justify-content: space-between;
+  gap: 20px;
+  @media screen and (max-width: 768px) {
+    grid-template-columns: 1fr;
+    grid-template-areas: "info" "logo" "nav";
+  }
+  &__logo {
+    grid-area: logo;
+    h2 {
+      @include font($purple-text, 36px, 400);
+    }
+  }
+  &__info {
+    grid-area: info;
+  }
+  &__nav {
+    grid-area: nav;
+  }
+}
+
+.header-grid-team__info {
+  display: flex;
+}
+
+.header-nav__menu-active {
+  @include font($red-color, 16px, 700);
+  text-decoration-line: underline;
+  text-underline-offset: 5px;
+  text-decoration-thickness: 2px;
+}
+
+.lang-team-button-wrap {
+  display: flex;
+  align-items: center;
+}
+
+.btn-team-lang {
+  @include font($gray, 12px, 700);
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  letter-spacing: 1px;
+  &:hover {
+    background: #f0145a;
+    padding: 5px 7px;
+  }
+}
+
+.contacts-team-wrap {
+  &__address {
+    p {
+      @include font($gray, 16px, 400);
+    }
+  }
+  &__address::before {
+    content: "";
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: $gray;
+    border-radius: 120%;
+    vertical-align: baseline;
+    margin-right: 3px;
+  }
+  &__phone {
+    a {
+      @include font($gray, 16px, 700);
+    }
+  }
+  &__phone::before {
+    content: "";
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: $gray;
+    border-radius: 120%;
+    vertical-align: baseline;
+    margin-left: 13px;
+  }
+  &__social::before {
+    content: "";
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: $gray;
+    border-radius: 120%;
+    vertical-align: baseline;
+    margin-left: 13px;
+  }
+}
+
+.footer-wrap-team {
+  margin-top: 0px;
+  padding: 30px 0;
+  border-top: none;
+}
+
+.main-team-section {
+  &-cards {
+    @media screen and (max-width: 1400px) {
+      justify-content: center;
+    }
+  }
+  &-title {
+    h1 {
+      max-width: 1360px;
+      @include font($gray, 38px, 700);
+      background: var(
+        --gradient-red-text,
+        linear-gradient(90deg, #f0145a 0.84%, #ef8080 99.96%)
+      );
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin: 0 auto;
+      padding: 30px 0;
+    }
+  }
+  &-cards {
+    padding: 60px 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    // img {
+    //   width: 100%;
+    // }
+
+    @media (max-width: 1280px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (max-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 576px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+  &-card {
+    &-img img {
+      width: 100%;
+    }
+    &-title {
+      @include font($purple-text, 16px, 700);
+      margin: 15px 0 5px;
+      &:hover {
+        @include font($red-color, 16px, 700);
+      }
+    }
+    &-txt {
+      @include font($gray, 14px, 400);
+      line-height: 1.57;
+    }
+  }
+}
